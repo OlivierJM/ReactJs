@@ -11,8 +11,9 @@ export default class QuizEntry extends Component {
         event.preventDefault();
         let team = $('#team').val();
         let scores = 10;
+        let teamCode = $('#code').val();
 
-        Teams.insert({team: team, score:scores});
+        Teams.insert({team: team, score:scores, code:teamCode});
 
         $('.field').val();
 
@@ -22,9 +23,16 @@ export default class QuizEntry extends Component {
 
             <div >
               <Header/>
-                <div className="container">
+                <div className="container center">
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <input className="field" id="team" required placeholder="Name of Team"/>
+                        <input className="field" id="code" required placeholder="Team Code"/>
+                        {/* <input className="field" id="team" required placeholder="Members of the Team"/>
+                        <input className="field" id="team" required placeholder="Members of the Team"/>
+                        <input className="field" id="team" required placeholder="Members of the Team"/>
+                        <input className="field" id="team" required placeholder="Members of the Team"/>
+                        <input className="field" id="team" required placeholder="Members of the Team"/>
+                        <input className="field" id="team" required placeholder="Members of the Team"/> */}
                         <button role="submit" className="btn flat green"> Save</button>
 
                     </form>
