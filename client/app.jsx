@@ -1,6 +1,6 @@
 import React, {Component, Proptypes} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Teams} from '../Collections/collections.js'
+import {Teams, Members} from '../Collections/collections.js'
 import Header from './Views/Header.jsx';
 
 export class App extends Component {
@@ -40,6 +40,7 @@ handleRemove(id, event){
             <tr key={team._id} className="collection-item">
               <td>{count++}</td>
                 <td onClick={''} className="team light link">{team.team}</td>
+                <td  className="team badge link">{team.code}</td>
                 <td><span className="badge ">{team.score}</span></td>
                 <td><i className="material-icons link " onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
                 <td><i className="material-icons link " onClick={this.handleReduce.bind(this, team._id)}>remove</i></td>
@@ -63,6 +64,7 @@ handleRemove(id, event){
                              <tr>
                                  <th data-field="">#</th>
                                  <th data-field="">Team</th>
+                                 <th data-field="">Code</th>
                                  <th data-field="">Scores</th>
                                  <th data-field="">Add Points</th>
                                  <th data-field="">Reduce Points</th>

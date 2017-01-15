@@ -1,5 +1,5 @@
 import React, {Component, Proptypes} from 'react';
-import {Teams} from '../Collections/collections.js';
+import {Teams, Members} from '../Collections/collections.js';
 import Header from './Views/Header.jsx';
 
 export default class QuizEntry extends Component {
@@ -13,21 +13,47 @@ export default class QuizEntry extends Component {
         let scores = 10;
         let teamCode = $('#code').val();
 
-        Teams.insert({team: team, score:scores, code:teamCode});
+        Teams.insert({team: team, score: scores, code: teamCode});
 
         $('.field').val();
+
+    }
+
+
+    submitCandidate(event){
+      event.preventDefault();
+      let team = $('#Team').val();
+      let teamCode = $('#Code').val();
+
+      let membres = new Array();
+      $("input:text[name=membre]").each(function(){
+          membres.push($(this).val());
+          });
+        Members.insert({
+          team:team, code:teamCode, members:membres
+        })
+
 
     }
     render() {
         return (
 
             <div >
-              <Header/>
+                <Header/>
                 <div className="container center">
+                  <ul className="tabs">
+                    <li className="tab">
+                      <a href="#teams" className="active">Add Team</a>
+                    </li>
+                    <li className="tab">
+                      <a className="" href="#candidate">Add Candidate</a>
+                    </li>
+                  </ul>
+                  <div id="teams" className="col s12">
+
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <input className="field" id="team" required placeholder="Name of Team"/>
-                        <input className="field" id="code" required placeholder="Team Code"/>
-                        {/* <input className="field" id="team" required placeholder="Members of the Team"/>
+                        <input className="field" id="code" required placeholder="Team Code"/> {/* <input className="field" id="team" required placeholder="Members of the Team"/>
                         <input className="field" id="team" required placeholder="Members of the Team"/>
                         <input className="field" id="team" required placeholder="Members of the Team"/>
                         <input className="field" id="team" required placeholder="Members of the Team"/>
@@ -36,6 +62,21 @@ export default class QuizEntry extends Component {
                         <button role="submit" className="btn flat green"> Save</button>
 
                     </form>
+                  </div>
+                  <div id="candidate" className="col s12">
+                    <form onSubmit={this.submitCandidate.bind(this)}>
+                        <input className="field" id="Team" name='team' required placeholder="Name of Team"/>
+                        <input className="field" id="Code" required name='code' placeholder="Team Code"/>
+                          <input className="field" id="team1" required  name='membre' placeholder="Members of the Team"/>
+                        <input className="field" id="team2" required name='membre' placeholder="Members of the Team"/>
+                        <input className="field" id="team3" required name='membre' placeholder="Members of the Team"/>
+                        <input className="field" id="team4" required name='membre' placeholder="Members of the Team"/>
+                        <input className="field" id="team5" required name='membre' placeholder="Members of the Team"/>
+                        <input className="field" id="team6" required name='membre' placeholder="Members of the Team"/>
+                        <button role="submit" className="btn flat green"> Save</button>
+
+                    </form>
+                  </div>
                 </div>
             </div>
 

@@ -36,3 +36,10 @@ span.badge {
 .link:hover{
   cursor: pointer;
 }
+.tabs .tab a.active, .tabs .tab a:hover, .tabs .tab a{
+  color:#43A047 !important;
+}
+
+.tabs .tab .indicator {
+  background-color: #43A047 !important;
+}

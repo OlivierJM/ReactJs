@@ -13,6 +13,7 @@ export default class Header extends Component {
              <li><a href="/dash" className="add"><i className="material-icons">group_add</i></a></li>
            </ul>
          </div>
+         
        </nav>
     )
   }
