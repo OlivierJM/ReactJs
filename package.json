@@ -1,35 +1,16 @@
 {
-  "name": "intro_to_react",
-  "version": "1.0.0",
-  "description": "Learning Reactjs ",
-  "main": "index.js",
+  "name": "leaderboard",
+  "private": true,
   "scripts": {
-    "production": "webpack -p",
-    "start": "webpack-dev-server"
+    "start": "meteor run"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://OlivierJM@bitbucket.org/OlivierJM/react.git"
-  },
-  "keywords": [
-    "manoli"
-  ],
-  "author": "OlivierJM",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/OlivierJM/react#readme",
   "dependencies": {
-    "jquery": "^3.1.1",
-    "raven-js": "^3.7.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "babel-runtime": "6.18.0",
+    "meteor-node-stubs": "~0.2.0",
+    "react": "^15.4.1",
+    "react-addons-pure-render-mixin": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-mounter": "^1.2.0",
     "react-router": "^3.0.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.7",
-    "babel-preset-react": "^6.16.0",
-    "html-webpack-plugin": "^2.24.1",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
   }
 }
