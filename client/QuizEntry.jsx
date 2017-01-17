@@ -13,9 +13,13 @@ export default class QuizEntry extends Component {
         let scores = 10;
         let teamCode = $('#code').val();
 
+        // if (!this.userId) {
+        //   throw new Meteor.Error('not-authorized');
+        // }
         Teams.insert({team: team, score: scores, code: teamCode});
 
-        $('.field').val();
+        $('.field').val('');
+        FlowRouter.go('/admin');
 
     }
 
@@ -53,7 +57,8 @@ export default class QuizEntry extends Component {
 
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <input className="field" id="team" required placeholder="Name of Team"/>
-                        <input className="field" id="code" required placeholder="Team Code"/> {/* <input className="field" id="team" required placeholder="Members of the Team"/>
+                        <input className="field" id="code" required placeholder="Team Code"/>
+                        {/* <input className="field" id="team" required placeholder="Members of the Team"/>
                         <input className="field" id="team" required placeholder="Members of the Team"/>
                         <input className="field" id="team" required placeholder="Members of the Team"/>
                         <input className="field" id="team" required placeholder="Members of the Team"/>
@@ -64,7 +69,8 @@ export default class QuizEntry extends Component {
                     </form>
                   </div>
                   <div id="candidate" className="col s12">
-                    <form onSubmit={this.submitCandidate.bind(this)}>
+                    <h4 className="light  ">Coming Soon ...</h4>
+                    {/* <form onSubmit={this.submitCandidate.bind(this)}>
                         <input className="field" id="Team" name='team' required placeholder="Name of Team"/>
                         <input className="field" id="Code" required name='code' placeholder="Team Code"/>
                           <input className="field" id="team1" required  name='membre' placeholder="Members of the Team"/>
@@ -75,7 +81,7 @@ export default class QuizEntry extends Component {
                         <input className="field" id="team6" required name='membre' placeholder="Members of the Team"/>
                         <button role="submit" className="btn flat green"> Save</button>
 
-                    </form>
+                    </form> */}
                   </div>
                 </div>
             </div>

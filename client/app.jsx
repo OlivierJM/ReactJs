@@ -3,7 +3,14 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {Teams, Members} from '../Collections/collections.js'
 import Header from './Views/Header.jsx';
 
+// import AccountsWrapper from './Views/AccountsWrapper.jsx'
+
+
 export class App extends Component {
+
+
+
+
 
 //Increment Points
 handleAdd(id,event){
@@ -31,44 +38,47 @@ handleRemove(id, event){
 
 
 
+
     renderTeams() {
       let count = 1;
         if (this.props.teams == undefined) {
             return "No Team Added Yet";
         }
         return this.props.teams.map((team) => (
-            <tr key={team._id} className="collection-item">
+            <tr key={team._id} className="">
               <td>{count++}</td>
-                <td onClick={''} className="team light link">{team.team}</td>
-                <td  className="team badge link">{team.code}</td>
-                <td><span className="badge ">{team.score}</span></td>
-                <td><i className="material-icons link " onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
-                <td><i className="material-icons link " onClick={this.handleReduce.bind(this, team._id)}>remove</i></td>
-                <td><i className="material-icons link" onClick={this.handleRemove.bind(this, team._id)}>delete</i></td>
+                <td onClick={''} style={{fontSize:0.8+"em"}}  className="">{team.team}</td>
+                <td  className="" style={{fontSize:0.5+"em"}} >{team.code}</td>
+                <td><span className=" ">{team.score}</span></td>
+                <td><i className="material-icons  " onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
+                <td> 
+                  <i className="material-icons  " onClick={this.handleReduce.bind(this, team._id)}>remove</i></td>
+                <td><i className="material-icons " onClick={this.handleRemove.bind(this, team._id)}>delete</i></td>
             </tr>
         ))
 
     }
 
     render() {
+
+
         return (
-            <div className="light">
-                <Header/>
+            <div className="">
+
+              <Header/>
+              {/* <AccountsWrapper /> */}
                 <div className="container">
-                    <div className="row">
 
-                        <div className="">
-
-                          <table className="highlight">
+                          <table className="highlight ">
                            <thead>
                              <tr>
-                                 <th data-field="">#</th>
-                                 <th data-field="">Team</th>
-                                 <th data-field="">Code</th>
-                                 <th data-field="">Scores</th>
-                                 <th data-field="">Add Points</th>
-                                 <th data-field="">Reduce Points</th>
-                                 <th data-field="">Delete Team</th>
+                                 <th data-field="" className="light">#</th>
+                                 <th data-field="" className="light">Team</th>
+                                 <th data-field="" className="light">Code</th>
+                                 <th data-field="" className="light">Scores</th>
+                                 <th data-field="" className="light">Add </th>
+                                 <th data-field="" className="light">Reduce </th>
+                                 <th data-field="" className="light">Remove</th>
                              </tr>
                            </thead>
                          <tbody>
@@ -77,14 +87,18 @@ handleRemove(id, event){
 
 
                          </table>
-                        </div>
+
+                          <a href="/dash" className="btn-floating btn-large waves-effect waves-light green darken-1 fixed right"><i className="material-icons">add</i></a>
                     </div>
-                </div>
+
             </div>
         )
     }
 }
 
 export default createContainer(() => {
-    return {teams: Teams.find({}, {sort:{'score':-1}}).fetch()}
+    return {
+      teams: Teams.find({}, {sort:{'score':-1}}).fetch(),
+      // user: Meteor.users.findOne(_id:Meteor.userId()).fetch(),
+    }
 }, App)

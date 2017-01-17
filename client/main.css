@@ -43,3 +43,7 @@ span.badge {
 .tabs .tab .indicator {
   background-color: #43A047 !important;
 }
+
+.teams tr {
+  line-height: 60px;
+}
