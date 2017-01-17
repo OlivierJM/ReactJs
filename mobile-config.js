@@ -8,6 +8,7 @@ App.info({
   author: 'OlivierJM',
   email: 'oliver@hackersguild.org',
   website: 'http://hackersguild.org'
+});
 // });
 // // Set up resources such as icons and launch screens.
 // // App.icons({

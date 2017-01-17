@@ -47,11 +47,11 @@ handleRemove(id, event){
         return this.props.teams.map((team) => (
             <tr key={team._id} className="">
               <td>{count++}</td>
-                <td onClick={''} style={{fontSize:0.8+"em"}}  className="">{team.team}</td>
-                <td  className="" style={{fontSize:0.5+"em"}} >{team.code}</td>
+                {/* <td onClick={''}  className="">{team.team}</td> */}
+                <td  className=""  >{team.code}</td>
                 <td><span className=" ">{team.score}</span></td>
                 <td><i className="material-icons  " onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
-                <td> 
+                <td>
                   <i className="material-icons  " onClick={this.handleReduce.bind(this, team._id)}>remove</i></td>
                 <td><i className="material-icons " onClick={this.handleRemove.bind(this, team._id)}>delete</i></td>
             </tr>
@@ -73,8 +73,8 @@ handleRemove(id, event){
                            <thead>
                              <tr>
                                  <th data-field="" className="light">#</th>
-                                 <th data-field="" className="light">Team</th>
-                                 <th data-field="" className="light">Code</th>
+                                 {/* <th data-field="" className="light">Team</th> */}
+                                 <th data-field="" className="light">Team Code</th>
                                  <th data-field="" className="light">Scores</th>
                                  <th data-field="" className="light">Add </th>
                                  <th data-field="" className="light">Reduce </th>
