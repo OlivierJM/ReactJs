@@ -1,38 +1,39 @@
-html{
-  font-family: "Roboto", sans-serif;
+html {
+  /*font-family: "Roboto", sans-serif;*/
   font-weight: 300;
 }
 
-nav {
+nav, .navbar-fixed {
+  /*position: fixed;*/
   height: 150px !important;
   margin-bottom: 50px;
 }
+ /*{
+  height: 200px;
+}*/
 .nav .add {
 
   line-height: 110px !important;
-}
-
-
-
-nav i.material-icons {
-  font-size: 60px !important;
 }
 
 .nav-wrapper {
   padding-bottom: 30px;
 }
 .collection .collection-item {
-  line-height: 5em ;
+  height: 2.5em ;
+  padding-bottom: - 33px;
 }
 
 .team {
+  font-size: 40px;
+}
+.teams {
   font-size: 25px;
 }
-
-span.badge {
+/*span.badge {
   font-size: 2em !important;
   float: inherit !important;
-}
+}*/
 .link:hover{
   cursor: pointer;
 }
@@ -42,8 +43,4 @@ span.badge {
 
 .tabs .tab .indicator {
   background-color: #43A047 !important;
-}
-
-.teams tr {
-  line-height: 60px;
 }

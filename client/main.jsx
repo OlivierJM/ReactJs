@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 
 Meteor.startup(() => {
 
-  if(!Meteor.userId()){
-      FlowRouter.go('/login');
-  }
+  // if(!Meteor.userId()){
+  //     FlowRouter.go('/login');
+  // }
 });

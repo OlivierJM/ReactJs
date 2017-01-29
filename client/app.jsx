@@ -3,9 +3,6 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {Teams, Members} from '../Collections/collections.js'
 import Header from './Views/Header.jsx';
 
-// import AccountsWrapper from './Views/AccountsWrapper.jsx'
-
-
 export class App extends Component {
 
 
@@ -48,12 +45,12 @@ handleRemove(id, event){
             <tr key={team._id} className="">
               <td>{count++}</td>
                 {/* <td onClick={''}  className="">{team.team}</td> */}
-                <td  className=""  >{team.code}</td>
+                <td  className="" >{team.code}</td>
                 <td><span className=" ">{team.score}</span></td>
-                <td><i className="material-icons  " onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
-                <td>
+                <td className=" link"><i className="material-icons  " onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
+                <td className="link">
                   <i className="material-icons  " onClick={this.handleReduce.bind(this, team._id)}>remove</i></td>
-                <td><i className="material-icons " onClick={this.handleRemove.bind(this, team._id)}>delete</i></td>
+                <td className="link"><i className="material-icons " onClick={this.handleRemove.bind(this, team._id)}>delete</i></td>
             </tr>
         ))
 
@@ -66,7 +63,6 @@ handleRemove(id, event){
             <div className="">
 
               <Header/>
-              {/* <AccountsWrapper /> */}
                 <div className="container">
 
                           <table className="highlight ">
@@ -99,6 +95,5 @@ handleRemove(id, event){
 export default createContainer(() => {
     return {
       teams: Teams.find({}, {sort:{'score':-1}}).fetch(),
-      // user: Meteor.users.findOne(_id:Meteor.userId()).fetch(),
     }
 }, App)

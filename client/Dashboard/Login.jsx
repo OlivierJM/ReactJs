@@ -26,7 +26,7 @@ export default class Register extends Component {
 
             Materialize.toast('You have successfully logged in as Admin', 5000);
             //  return window.location = '/';
-             return FlowRouter.go('/admin');
+             FlowRouter.go('/admin');
 
           }
         });

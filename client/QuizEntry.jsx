@@ -12,11 +12,21 @@ export default class QuizEntry extends Component {
         let team = $('#team').val();
         let scores = 10;
         let teamCode = $('#code').val();
+        let dist = $('#district').val();
+        let field = $('#field').val();
+        let group = $('#group').val();
 
         // if (!this.userId) {
         //   throw new Meteor.Error('not-authorized');
         // }
-        Teams.insert({team: team, score: scores, code: teamCode});
+        Teams.insert({
+          team: team,
+          score: scores,
+          code: teamCode,
+          dist: dist,
+          field: field,
+          group:group
+        });
 
         $('.field').val('');
         FlowRouter.go('/admin');
@@ -29,13 +39,17 @@ export default class QuizEntry extends Component {
       let team = $('#Team').val();
       let teamCode = $('#Code').val();
 
+
       let membres = new Array();
       $("input:text[name=membre]").each(function(){
           membres.push($(this).val());
           });
         Members.insert({
-          team:team, code:teamCode, members:membres
+          team:team,
+          code:teamCode,
+          members:membres
         })
+
 
 
     }
@@ -58,10 +72,10 @@ export default class QuizEntry extends Component {
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <input className="field" id="team" required placeholder="Name of Team"/>
                         <input className="field" id="code" required placeholder="Team Code"/>
-                        {/* <input className="field" id="team" required placeholder="Members of the Team"/>
-                        <input className="field" id="team" required placeholder="Members of the Team"/>
-                        <input className="field" id="team" required placeholder="Members of the Team"/>
-                        <input className="field" id="team" required placeholder="Members of the Team"/>
+                        <input className="field" id="district" required placeholder="District"/>
+                        <input className="field" id="field" required placeholder="Conference or Field"/>
+                        <input className="field" id="group" required placeholder=" Which Ministry "/>
+                        {/*  <input className="field" id="team" required placeholder="Members of the Team"/>
                         <input className="field" id="team" required placeholder="Members of the Team"/>
                         <input className="field" id="team" required placeholder="Members of the Team"/> */}
                         <button role="submit" className="btn flat green"> Save</button>

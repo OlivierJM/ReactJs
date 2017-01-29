@@ -23,6 +23,9 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 react-meteor-data
 kadira:flow-router
 meteortoys:allthings
-zodiase:material-design-icons-fonts
+#zodiase:material-design-icons-fonts
 accounts-base
 accounts-password
+fourseven:scss
+#materialize:materialize
+poetic:materialize-scss
