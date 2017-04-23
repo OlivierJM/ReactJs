@@ -12,7 +12,7 @@ export default class About extends Component {
                     <h4 className="center ">
                         Developed by Olivier JM</h4>
                     <p className="center flow-text">From Hackers Guild</p>
-                    {/* <img src="/img/oliv.jpg" className=""/> */}
+                    {/* <img src="/img/oliv.jpg" className="img-circle"/> */}
                 </div>
             </div>
         )

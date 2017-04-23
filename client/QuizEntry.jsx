@@ -1,56 +1,40 @@
 import React, {Component, Proptypes} from 'react';
-import {Teams, Members} from '../Collections/collections.js';
+import {Teams} from '../Collections/collections.js';
 import Header from './Views/Header.jsx';
 
 export default class QuizEntry extends Component {
-    constructor() {
-        super();
-    }
+  constructor(){
+    super();
+    console.log('Hello');
+  }
 
     handleSubmit(event) {
         event.preventDefault();
         let team = $('#team').val();
-        let scores = 10;
+        let scores = 10; //initial score for every team
         let teamCode = $('#code').val();
         let dist = $('#district').val();
         let field = $('#field').val();
         let group = $('#group').val();
+        let teamId = new Meteor.Collection.ObjectID().valueOf();
+
 
         // if (!this.userId) {
         //   throw new Meteor.Error('not-authorized');
         // }
         Teams.insert({
+          _id:teamId,
           team: team,
           score: scores,
           code: teamCode,
           dist: dist,
           field: field,
-          group:group
+          group:group,
+          date: new Date()
         });
 
         $('.field').val('');
         FlowRouter.go('/admin');
-
-    }
-
-
-    submitCandidate(event){
-      event.preventDefault();
-      let team = $('#Team').val();
-      let teamCode = $('#Code').val();
-
-
-      let membres = new Array();
-      $("input:text[name=membre]").each(function(){
-          membres.push($(this).val());
-          });
-        Members.insert({
-          team:team,
-          code:teamCode,
-          members:membres
-        })
-
-
 
     }
     render() {
@@ -75,27 +59,12 @@ export default class QuizEntry extends Component {
                         <input className="field" id="district" required placeholder="District"/>
                         <input className="field" id="field" required placeholder="Conference or Field"/>
                         <input className="field" id="group" required placeholder=" Which Ministry "/>
-                        {/*  <input className="field" id="team" required placeholder="Members of the Team"/>
-                        <input className="field" id="team" required placeholder="Members of the Team"/>
-                        <input className="field" id="team" required placeholder="Members of the Team"/> */}
                         <button role="submit" className="btn flat green"> Save</button>
 
                     </form>
                   </div>
                   <div id="candidate" className="col s12">
                     <h4 className="light  ">Coming Soon ...</h4>
-                    {/* <form onSubmit={this.submitCandidate.bind(this)}>
-                        <input className="field" id="Team" name='team' required placeholder="Name of Team"/>
-                        <input className="field" id="Code" required name='code' placeholder="Team Code"/>
-                          <input className="field" id="team1" required  name='membre' placeholder="Members of the Team"/>
-                        <input className="field" id="team2" required name='membre' placeholder="Members of the Team"/>
-                        <input className="field" id="team3" required name='membre' placeholder="Members of the Team"/>
-                        <input className="field" id="team4" required name='membre' placeholder="Members of the Team"/>
-                        <input className="field" id="team5" required name='membre' placeholder="Members of the Team"/>
-                        <input className="field" id="team6" required name='membre' placeholder="Members of the Team"/>
-                        <button role="submit" className="btn flat green"> Save</button>
-
-                    </form> */}
                   </div>
                 </div>
             </div>

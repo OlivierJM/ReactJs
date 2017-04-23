@@ -1,7 +1,7 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import Header from './Header.jsx';
+import {Teams, Players} from '../../Collections/collections.js';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Teams, Members} from '../../Collections/collections.js';
 
 export class TeamDetails extends Component {
 
@@ -12,14 +12,17 @@ export class TeamDetails extends Component {
         let dist = '';
         let field = '';
         let group = '';
+        let players = '';
         let team = this.props.team;
-        if (team) {
+        let count = this.props.players;
+        if (team && count !== undefined) {
             name = team.team;
             score = team.score;
             code = team.code;
             dist = team.dist;
             field = team.field;
             group = team.group;
+            players = count;
         } else {}
 
         return (
@@ -46,6 +49,9 @@ export class TeamDetails extends Component {
                                 <li className="collection-item teams light">Ministry
                                     <span className="right green-text darken-1">{group}</span>
                                 </li>
+                                <li className="collection-item teams light" title="Members of the Team">Players
+                                    <span className="right green-text darken-1">{players}</span>
+                                </li>
                             </ul>
                         </div>
                         <div className="col s12 center">
@@ -66,6 +72,7 @@ export function getTeamId() {
 
 export default createContainer(() => {
     return {
-        team: Teams.findOne({_id: getTeamId()})
+        team: Teams.findOne({_id: getTeamId()}),
+        players:Players.find({teamId:getTeamId()}).count(),
     }
 }, TeamDetails)

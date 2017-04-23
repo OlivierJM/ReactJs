@@ -1,13 +1,9 @@
 import React, {Component, Proptypes} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Teams, Members} from '../Collections/collections.js'
+import {Teams} from '../Collections/collections.js'
 import Header from './Views/Header.jsx';
 
 export class App extends Component {
-
-
-
-
 
 //Increment Points
 handleAdd(id,event){
@@ -32,7 +28,11 @@ handleRemove(id, event){
   Teams.remove(id);
 }
 
+addPlayer(id, code, event){
+  event.preventDefault();
+  FlowRouter.go('/add/'+id)
 
+}
 
 
 
@@ -45,7 +45,7 @@ handleRemove(id, event){
             <tr key={team._id} className="">
               <td>{count++}</td>
                 {/* <td onClick={''}  className="">{team.team}</td> */}
-                <td  className="" >{team.code}</td>
+                <td  className="link" onClick={this.addPlayer.bind(this, team._id, team.code)}>{team.code}</td>
                 <td><span className=" ">{team.score}</span></td>
                 <td className=" link"><i className="material-icons  " onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
                 <td className="link">
@@ -84,7 +84,7 @@ handleRemove(id, event){
 
                          </table>
 
-                          <a href="/dash" className="btn-floating btn-large waves-effect waves-light green darken-1 fixed right"><i className="material-icons">add</i></a>
+                          <a href="/dashboard" className="btn-floating btn-large waves-effect waves-light green darken-1 fixed right"><i className="material-icons">add</i></a>
                     </div>
 
             </div>

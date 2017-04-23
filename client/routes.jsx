@@ -7,7 +7,7 @@ import Home from './Views/Home.jsx';
 import TeamDetails from './Views/TeamDetails.jsx';
 import About from './Views/About.jsx';
 import Instructions from './Views/Instructions.jsx';
-
+import AddPlayer from './AddPlayer';
 
 FlowRouter.route('/admin/', {
     name: 'App',
@@ -21,7 +21,13 @@ FlowRouter.route('/', {
       mount(Home, {});
     }
 });
-FlowRouter.route('/dash', {
+FlowRouter.route('/add/:_id', {
+    name: 'AddPlayer',
+    action(params) {
+      mount(AddPlayer, {});
+    }
+});
+FlowRouter.route('/dashboard', {
   name: 'QuizEntry',
   action(){
     mount(QuizEntry, {})
@@ -50,7 +56,7 @@ FlowRouter.route('/help', {
 });
 FlowRouter.route('/details/:_id', {
     name: 'TeamDetails',
-    action(params, queryParams) {
+    action(params) {
       mount(TeamDetails, {});
     }
 });

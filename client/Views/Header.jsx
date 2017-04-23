@@ -76,7 +76,7 @@ export class Header extends Component {
 
                         <ul className="right hide-on-med-and-down" id="menu-list">
                             <li>
-                                <a href="/dash" className="waves-green">Dashboard</a>
+                                <a href="/dashboard" className="waves-green">Dashboard</a>
                             </li>
                             <li>
                                 <a href="/admin" className="waves-effect">
@@ -146,7 +146,7 @@ export class Header extends Component {
                             </li> */}
                         </ul>
                         <a href="" data-activates="slide-out" className="button-collapse">
-                            <i className="material-icons md26">menu</i>
+                            {/* <i className="material-icons">menu</i> */}
                         </a>
                     </div>
 

@@ -1,3 +1,6 @@
+@-ms-viewport{
+  width: device-width;
+}
 html {
   /*font-family: "Roboto", sans-serif;*/
   font-weight: 300;
@@ -30,17 +33,9 @@ nav, .navbar-fixed {
 .teams {
   font-size: 25px;
 }
-/*span.badge {
-  font-size: 2em !important;
-  float: inherit !important;
-}*/
 .link:hover{
   cursor: pointer;
 }
 .tabs .tab a.active, .tabs .tab a:hover, .tabs .tab a{
   color:#43A047 !important;
-}
-
-.tabs .tab .indicator {
-  background-color: #43A047 !important;
 }
