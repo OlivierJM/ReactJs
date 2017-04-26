@@ -3,11 +3,7 @@ import {Teams} from '../Collections/collections.js';
 import Header from './Views/Header.jsx';
 
 export default class QuizEntry extends Component {
-  constructor(){
-    super();
-    console.log('Hello');
-  }
-
+  
     handleSubmit(event) {
         event.preventDefault();
         let team = $('#team').val();

@@ -3,7 +3,7 @@
 App.info({
   id: 'com.leaderboard.me',
   name: 'leaderboard',
-  version: "0.1.0",
+  version: "0.1.1",
   description: 'Quiz ScoreBoard',
   author: 'OlivierJM',
   email: 'oliver@hackersguild.org',

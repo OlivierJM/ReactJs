@@ -3,7 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import {createContainer} from 'meteor/react-meteor-data';
 import Login from '../Dashboard/Login.jsx';
 
-export class Header extends Component {
+export default class Header extends Component {
 
     handleAdmin() {
 
@@ -156,8 +156,3 @@ export class Header extends Component {
         )
     }
 }
-export default createContainer(() => {
-    return {
-        user: Meteor.users.findOne({_id: Meteor.userId()})
-    }
-}, Header)
