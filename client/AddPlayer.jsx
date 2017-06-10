@@ -2,6 +2,7 @@ import React, {Component,PropTypes} from 'react';
 import Header from './Views/Header.jsx';
 import {Teams, Players} from '../Collections/collections.js'
 import {createContainer} from 'meteor/react-meteor-data';
+import {getTeamId} from './Views/TeamDetails';
 
 
 export class AddPlayer extends Component{
@@ -17,6 +18,7 @@ export class AddPlayer extends Component{
       teamId:getTeamId(),
       name:name,
       likes:likes,
+      score:10,
       date:new Date()
     })
     $('.field').val('');
@@ -63,9 +65,6 @@ export class AddPlayer extends Component{
       </div>
     )
   }
-}
-export function getTeamId(){
-  return FlowRouter.getParam('_id');
 }
 
 export default createContainer(()=>{

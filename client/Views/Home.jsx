@@ -43,10 +43,10 @@ viewDetails(id, event){
                         <table className="highlight ">
                             <thead>
                                 <tr>
-                                    <th data-field="" className="light">#</th>
-                                    <th data-field="" className="light">Team</th>
-                                    <th data-field="" className="light">Code</th>
-                                    <th data-field="" className="light">Scores</th>
+                                    <th data-field="" className="light team">#</th>
+                                    <th data-field="" className="light team">Team</th>
+                                    <th data-field="" className="light team">Code</th>
+                                    <th data-field="" className="light team">Scores</th>
 
                                 </tr>
                             </thead>

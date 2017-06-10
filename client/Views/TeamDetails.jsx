@@ -5,6 +5,21 @@ import {createContainer} from 'meteor/react-meteor-data';
 
 export class TeamDetails extends Component {
 
+
+  renderPlayers(){
+    let players = this.props.playersList;
+    let count = 1;
+    if(players == undefined){
+      return;
+    }
+    return players.map((player)=>(
+      <li key={player._id} className="collection-item teams light">
+        {player.name}
+        <span className="right green-text darken-1">{player.score}</span>
+      </li>
+    ))
+
+  }
     render() {
         let name = '';
         let score = '';
@@ -13,6 +28,7 @@ export class TeamDetails extends Component {
         let field = '';
         let group = '';
         let players = '';
+        let teamId = '';
         let team = this.props.team;
         let count = this.props.players;
         if (team && count !== undefined) {
@@ -23,13 +39,14 @@ export class TeamDetails extends Component {
             field = team.field;
             group = team.group;
             players = count;
+            teamId = team._id;
         } else {}
 
         return (
             <div>
                 <Header/>
                 <div className="container">
-                    <h4 className="center green-text darken-1 team">{name}</h4>
+                    <h4 className="center green-text darken-1 team">Team {name}</h4>
                     <div className="row">
                         <div className="col s12">
 
@@ -50,8 +67,12 @@ export class TeamDetails extends Component {
                                     <span className="right green-text darken-1">{group}</span>
                                 </li>
                                 <li className="collection-item teams light" title="Members of the Team">Players
-                                    <span className="right green-text darken-1">{players}</span>
+                                    <span className="right green-text darken-1">
+                                    <a href={'/players/'+ teamId}>
+                                    {players} Players </a>
+                                    </span>
                                 </li>
+                                {this.renderPlayers()}
                             </ul>
                         </div>
                         <div className="col s12 center">
@@ -67,12 +88,13 @@ export class TeamDetails extends Component {
     }
 }
 export function getTeamId() {
-    return FlowRouter.getParam('_id')
+    return FlowRouter.getParam('_id');
 }
 
 export default createContainer(() => {
     return {
         team: Teams.findOne({_id: getTeamId()}),
         players:Players.find({teamId:getTeamId()}).count(),
+        playersList:Players.find({teamId:getTeamId()}).fetch(),
     }
 }, TeamDetails)

@@ -3,7 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {Teams} from '../Collections/collections.js'
 import Header from './Views/Header.jsx';
 
-export class App extends Component {
+export class Mobile extends Component {
 
 //Increment Points
 handleAdd(id,event){
@@ -17,7 +17,7 @@ handleAdd(id,event){
 handleReduce(id,event){
   event.preventDefault();
 
-  Teams.update(id, {$inc:{score: -5}})
+  Teams.update(id, {$inc:{score: -10}})
 
 }
 
@@ -37,20 +37,23 @@ addPlayer(id, code, event){
 
 
     renderTeams() {
+      var style = {
+        tCode: {
+          fontSize: 25
+        }
+      }
       let count = 1;
         if (this.props.teams == undefined) {
             return "No Team Added Yet";
         }
         return this.props.teams.map((team) => (
             <tr key={team._id} className="">
-              <td>{count++}</td>
+              <td>{team.score}</td>
                 {/* <td onClick={''}  className="">{team.team}</td> */}
-                <td  className="link" onClick={this.addPlayer.bind(this, team._id, team.code)}>{team.code}</td>
-                <td><span className=" ">{team.score}</span></td>
-                <td className=" link"><i className="material-icons  " onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
+                <td  className="tCode" style={style.tCode}>{team.code}</td>
+                <td className=" link"><i className="material-icons large" onClick={this.handleAdd.bind(this, team._id)}>add</i></td>
                 <td className="link">
-                  <i className="material-icons  " onClick={this.handleReduce.bind(this, team._id)}>remove</i></td>
-                <td className="link"><i className="material-icons " onClick={this.handleRemove.bind(this, team._id)}>delete</i></td>
+                  <i className="material-icons large " onClick={this.handleReduce.bind(this, team._id)}>remove</i></td>
             </tr>
         ))
 
@@ -71,10 +74,8 @@ addPlayer(id, code, event){
                                  <th data-field="" className="light">#</th>
                                  {/* <th data-field="" className="light">Team</th> */}
                                  <th data-field="" className="light">Team Code</th>
-                                 <th data-field="" className="light">Scores</th>
                                  <th data-field="" className="light">Add </th>
                                  <th data-field="" className="light">Reduce </th>
-                                 <th data-field="" className="light">Remove</th>
                              </tr>
                            </thead>
                          <tbody>
@@ -96,4 +97,4 @@ export default createContainer(() => {
     return {
       teams: Teams.find({}, {sort:{'score':-1}}).fetch(),
     }
-}, App)
+}, Mobile)
