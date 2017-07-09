@@ -6,6 +6,7 @@ import Mobile from './Mobile';
 import QuizEntry from './QuizEntry.jsx';
 import Home from './Views/Home.jsx';
 import TeamDetails from './Views/TeamDetails.jsx';
+import Timer from './Views/Timer.jsx';
 import About from './Views/About.jsx';
 import Instructions from './Views/Instructions.jsx';
 import Members from './Views/Members';
@@ -87,4 +88,11 @@ FlowRouter.route('/details/:_id', {
     action(params) {
       mount(TeamDetails, {});
     }
+});
+
+FlowRouter.route('/countdown', {
+  name: 'Timer',
+  action(){
+    mount(Timer, {});
+  }
 });

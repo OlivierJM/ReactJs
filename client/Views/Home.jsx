@@ -4,6 +4,7 @@ import Header from './Header.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Teams, Members} from '../../Collections/collections.js';
 
+
 export class Home extends Component {
 
 
@@ -33,13 +34,16 @@ viewDetails(id, event){
         ));
     }
 
-    render(){
 
+
+    render(){
+    
         return (
             <div>
                 <Header/>
                 <div className="container">
                     <div className="col 12">
+                    <h4 className="center blue-text darken-1 team">Senior Youths</h4>
                         <table className="highlight ">
                             <thead>
                                 <tr>
@@ -54,7 +58,13 @@ viewDetails(id, event){
                                 {this.renderTeams()}
                             </tbody>
                         </table>
-                    </div>
+
+
+
+
+                 
+
+                 </div>
                 </div>
             </div>
         )
@@ -67,4 +77,4 @@ export default createContainer(() => {
                 'score': -1
             }
         }).fetch()}
-}, Home)
+}, Home);
