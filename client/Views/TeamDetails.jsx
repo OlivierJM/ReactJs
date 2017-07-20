@@ -51,24 +51,15 @@ export class TeamDetails extends Component {
                         <div className="col s12">
 
                             <ul className="collection">
-                                <li className="collection-item teams light">Team Code
-                                    <span className="right green-text darken-1 ">{code}</span>
-                                </li>
                                 <li className="collection-item teams light">Current Score
                                     <span className="right green-text darken-1">{score}</span>
-                                </li>
-                                <li className="collection-item teams light">District
-                                    <span className="right green-text darken-1">{dist}</span>
-                                </li>
-                                <li className="collection-item teams light">Field/Conference
-                                    <span className="right green-text darken-1">{field}</span>
                                 </li>
                                 <li className="collection-item teams light">Ministry
                                     <span className="right green-text darken-1">{group}</span>
                                 </li>
                                 <li className="collection-item teams light" title="Members of the Team">Players
                                     <span className="right green-text darken-1">
-                                    <a href={'/players/'+ teamId}>
+                                    <a href={'/members/'+ teamId}>
                                     {players} Players </a>
                                     </span>
                                 </li>

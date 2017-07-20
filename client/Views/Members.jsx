@@ -11,6 +11,7 @@ export class Members extends Component{
             event.preventDefault();
 
             Players.update(id, {$inc:{score:10}});
+            Teams.update(getTeamId(), {$inc:{score:10}});
             return false;
           }
 
@@ -29,9 +30,9 @@ export class Members extends Component{
             Players.remove(id);
           }
 
-          addPlayer(id, code, event){
+          addPlayer(id, teamId, event){
             event.preventDefault();
-            FlowRouter.go('/add/'+id)
+            FlowRouter.go('/players/'+teamId);
 
           }
 
@@ -44,7 +45,7 @@ export class Members extends Component{
             <tr key={player._id} className="">
               <td>{count++}</td>
                 {/* <td onClick={''}  className="">{player.team}</td> */}
-                <td  className="link" onClick={this.addPlayer.bind(this, player._id, player.code)}>{player.name}</td>
+                <td  className="link" onClick={this.addPlayer.bind(this, player._id, player.teamId)}>{player.name}</td>
                 <td><span className=" ">{player.score}</span></td>
                 <td className=" link"><i className="material-icons  " onClick={this.handleAdd.bind(this, player._id)}>add</i></td>
                 <td className="link">
@@ -104,7 +105,7 @@ export class Members extends Component{
 
 
                          </table>
-                         </div>  
+                         </div>
 
 			       </div>
 

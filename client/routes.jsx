@@ -4,6 +4,7 @@ import Login from './Dashboard/Login.jsx';
 import App from './app.jsx';
 import Mobile from './Mobile';
 import QuizEntry from './QuizEntry.jsx';
+import Player from './Player.jsx';
 import Home from './Views/Home.jsx';
 import TeamDetails from './Views/TeamDetails.jsx';
 import Timer from './Views/Timer.jsx';
@@ -46,6 +47,13 @@ FlowRouter.route('/dashboard', {
   }
 
 });
+FlowRouter.route('/players/:_id', {
+  name: 'Player',
+  action(params){
+    mount(Player, {});
+  }
+
+});
 
 FlowRouter.route('/login', {
     name: 'Login',
@@ -75,8 +83,8 @@ FlowRouter.route('/all', {
   }
 });
 
-//Route for the players 
-FlowRouter.route('/players/:_id', {
+//Route for the players
+FlowRouter.route('/members/:_id', {
     name: 'Members',
     action(params) {
       mount(Members, {});

@@ -8,11 +8,11 @@ import {Teams, Members} from '../../Collections/collections.js';
 export class Home extends Component {
 
 
-//To the all details Page
-viewDetails(id, event){
-  event.preventDefault();
-  FlowRouter.go('/details/' + id);
-}
+      //To the all details Page
+      viewDetails(id, event){
+        event.preventDefault();
+        FlowRouter.go('/details/' + id);
+      }
 
 
 
@@ -37,13 +37,14 @@ viewDetails(id, event){
 
 
     render(){
-    
+
         return (
             <div>
                 <Header/>
                 <div className="container">
                     <div className="col 12">
-                    <h4 className="center blue-text darken-1 team">Senior Youths</h4>
+                    <h4 className="center blue-text darken-1
+team">Pathfinder</h4>
                         <table className="highlight ">
                             <thead>
                                 <tr>
@@ -62,7 +63,7 @@ viewDetails(id, event){
 
 
 
-                 
+
 
                  </div>
                 </div>

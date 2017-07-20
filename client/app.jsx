@@ -92,6 +92,9 @@ addPlayer(id, code, event){
     }
 }
 
+
+
+
 export default createContainer(() => {
     return {
       teams: Teams.find({}, {sort:{'score':-1}}).fetch(),

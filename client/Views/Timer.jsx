@@ -47,7 +47,7 @@ export default class Timer extends Component {
                      size={500}
                      onComplete={this.myCallback()}
                     paused={this.state.isPaused}
-                    pausedText="PAT"
+                    pausedText="SZU"
                       />
                     </div>
                  <div style={{float:'right'}}>

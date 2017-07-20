@@ -72,12 +72,10 @@ export default class Header extends Component {
                         <i className="material-icons">menu</i>
                     </a> */}
                     {/* Adventist Youth Ministries Bible Quiz Program */}
-                        <a href="/" className="brand-logo">Lusaka Conference Bible Quiz</a>
+                        <a href="/" className="brand-logo">Southern Zambia Union Conference Bible Quiz</a>
 
                         <ul className="right hide-on-med-and-down" id="menu-list">
-                            <li>
-                                <a href="/dashboard" className="waves-green">Dashboard</a>
-                            </li>
+                           
                             <li>
                                 <a href="/admin" className="waves-effect">
                                     {/* <i className="material-icons">account_circle</i> */}
