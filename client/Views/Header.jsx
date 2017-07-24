@@ -66,7 +66,7 @@ export default class Header extends Component {
 
         return (
             <div className="">
-                <nav className=" nav blue darken-1">
+                <nav className=" nav green darken-1">
                     <div className="nav-wrapper container">
                         {/* <a href="#mobile-demo" data-activates="mobile-demo" className="button-collapse">
                         <i className="material-icons">menu</i>
@@ -75,7 +75,7 @@ export default class Header extends Component {
                         <a href="/" className="brand-logo">Southern Zambia Union Conference Bible Quiz</a>
 
                         <ul className="right hide-on-med-and-down" id="menu-list">
-                           
+
                             <li>
                                 <a href="/admin" className="waves-effect">
                                     {/* <i className="material-icons">account_circle</i> */}

@@ -18,7 +18,7 @@ export class AddPlayer extends Component{
       teamId:getTeamId(),
       name:name,
       likes:likes,
-      score:10,
+      score:0,
       date:new Date()
     })
     $('.field').val('');

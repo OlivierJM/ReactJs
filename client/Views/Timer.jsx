@@ -42,7 +42,7 @@ export default class Timer extends Component {
 			<div>
 			<div className="timer" style={{marginTop:"60"}}>
 			     <ReactCountdownClock seconds={10}
-                     color="#00ECB9"
+                     color="#000"
                      alpha={0.6}
                      size={500}
                      onComplete={this.myCallback()}

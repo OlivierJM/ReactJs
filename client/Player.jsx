@@ -46,7 +46,7 @@ export class PlayerList extends Component {
                 <div className="container">
 
                     <div className="col 12">
-                      <h4 className="center green-text darken-1 team"> {name} currently has {score} Points</h4>
+                      <h4 className="center green-text darken-1 team"> {name} currently has <span className="red-text">{score} </span>Points</h4>
 
                         <table className="highlight ">
                             <thead>

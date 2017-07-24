@@ -11,7 +11,7 @@ export class Members extends Component{
             event.preventDefault();
 
             Players.update(id, {$inc:{score:10}});
-            Teams.update(getTeamId(), {$inc:{score:10}});
+            // Teams.update(getTeamId(), {$inc:{score:10}});
             return false;
           }
 
@@ -55,7 +55,17 @@ export class Members extends Component{
         ))
 
     }
-
+    renderPathfinders(){
+      let pathfiners = this.props.pathfiners;
+      if (pathfiners == undefined) {
+          return "No Players Added Yet";
+      }
+      return pathfiners.map((path) => (
+        <li key={path._id}>
+          {path.name} <span>" Score  "{path.score}</span>
+        </li>
+      ))
+    }
 
 	render(){
      let name = '';
@@ -105,6 +115,7 @@ export class Members extends Component{
 
 
                          </table>
+                         {/* {this.renderPathfinders()} */}
                          </div>
 
 			       </div>
@@ -119,5 +130,6 @@ export default createContainer(() => {
 	return {
 		team: Teams.findOne({_id: getTeamId()}),
 		players: Players.find({teamId:getTeamId()}).fetch(),
+		pathfiners: Players.find({}, {sort:{score:-1}}).fetch(),
 	}
 	}, Members);

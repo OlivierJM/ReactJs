@@ -27,9 +27,8 @@ export class Home extends Component {
             <tr key={team._id} className="" onClick={this.viewDetails.bind(this, team._id)}>
                 <td  style={{height: 50}}>{count++}</td>
                 <td onClick={''} className="team light link" title={'Click here to see details about '+team.team}>{team.team}</td>
-                <td className="team light link">{team.code}</td>
                 {/* <td> <span className="badge ">{team.score}</span></td> */}
-                <td className="team light">{team.score}</td>
+                <td className="team light red-text">{team.score}</td>
             </tr>
         ));
     }
@@ -43,14 +42,13 @@ export class Home extends Component {
                 <Header/>
                 <div className="container">
                     <div className="col 12">
-                    <h4 className="center blue-text darken-1
-team">Pathfinder</h4>
+                    <h4 className="center green-text darken-1
+team">Senior Youth</h4>
                         <table className="highlight ">
                             <thead>
                                 <tr>
                                     <th data-field="" className="light team">#</th>
                                     <th data-field="" className="light team">Team</th>
-                                    <th data-field="" className="light team">Code</th>
                                     <th data-field="" className="light team">Scores</th>
 
                                 </tr>
