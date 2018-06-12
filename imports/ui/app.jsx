@@ -1,16 +1,13 @@
-import React, { Component, Proptypes } from "react";
-import { createContainer } from "meteor/react-meteor-data";
-import { Teams } from '../api/teams/teams';
+import React, { Component } from "react";
+import { withTracker } from "meteor/react-meteor-data";
+import { Teams } from "../api/teams/teams";
 import Header from "./Views/Header.jsx";
 
-export class App extends Component {
-  //Increment Points
-  handleAdd(id, event) {
-    event.preventDefault();
+const score = 10;
 
-    Teams.update(id, { $inc: { score: 10 } });
-    return false;
-  }
+export class App extends Component {
+  
+
 
   //Decrement Points
   handleReduce(id, event) {
@@ -29,6 +26,23 @@ export class App extends Component {
   addPlayer(id, code, event) {
     event.preventDefault();
     FlowRouter.go("/add/" + id);
+  }
+
+  // Handle all events
+
+  updateTeam = (e, id, type) => {
+    switch (type) {
+      //Increment Points
+      case 'add':
+        Meteor.call('increaseTeamPoints', id, score);
+        break;
+      case 'reduce':
+        Meteor.call('reduceTeamPoints', id, score);
+      break;
+      case 'remove':
+        Meteor.call('removeTeam', id);
+      break;
+    }
   }
 
   renderTeams() {
@@ -52,7 +66,7 @@ export class App extends Component {
         <td className=" link">
           <i
             className="material-icons  "
-            onClick={this.handleAdd.bind(this, team._id)}
+            onClick={e => this.updateTeam(e, team._id, 'add')}
           >
             add
           </i>
@@ -60,7 +74,7 @@ export class App extends Component {
         <td className="link">
           <i
             className="material-icons  "
-            onClick={this.handleReduce.bind(this, team._id)}
+            onClick={e => this.updateTeam(e, team._id, 'reduce')}
           >
             remove
           </i>
@@ -68,7 +82,7 @@ export class App extends Component {
         <td className="link">
           <i
             className="material-icons "
-            onClick={this.handleRemove.bind(this, team._id)}
+            onClick={e => this.updateTeam(e, team._id, 'remove')}
           >
             delete
           </i>
@@ -121,8 +135,8 @@ export class App extends Component {
   }
 }
 
-export default createContainer(() => {
+export default withTracker(() => {
   return {
     teams: Teams.find({}, { sort: { score: -1 } }).fetch()
   };
-}, App);
+})(App);

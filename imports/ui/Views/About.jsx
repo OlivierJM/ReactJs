@@ -10,9 +10,9 @@ export default class About extends Component {
                 <Header/>
                 <div>
                     <h4 className="center ">
-                        Developed by Olivier JM</h4>
-                    <p className="center flow-text">From Hackers Guild</p>
-                    {/* <img src="/img/oliv.jpg" className="img-circle"/> */}
+                       SoftWare Developed by Olivier JM</h4>
+                    <p className="center flow-text">From BongoHive</p>
+                    {/* <img src="/img/olivier.jpg" className="img-circle"/> */}
                 </div>
             </div>
         )

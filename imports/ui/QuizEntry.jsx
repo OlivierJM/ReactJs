@@ -9,7 +9,7 @@ export default class QuizEntry extends Component {
     this.state = {
       name: '', 
       code: '',
-      scores: '10'
+      scores: 10
     }
   }
   handleSubmit = (e) => {
@@ -17,7 +17,6 @@ export default class QuizEntry extends Component {
     const { name, code, scores } = this.state;
 
     Meteor.call("insertTeam", name, scores, code, 'path');
-    console.log('hello')
 
   }
 
