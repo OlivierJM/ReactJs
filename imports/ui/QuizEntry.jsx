@@ -1,29 +1,42 @@
 import React, { Component, Proptypes } from "react";
+import { Meteor } from 'meteor/meteor';
 import Header from "./Views/Header";
 import { Teams } from '../api/teams/teams'
 
 export default class QuizEntry extends Component {
+  constructor(){
+    super();
+    this.state = {
+      name: '', 
+      code: '',
+      scores: '10'
+    }
+  }
   handleSubmit = (e) => {
     e.preventDefault();
-    let team = $("#team").val();
-    let scores = 10; //initial score for every team
-    let teamCode = $("#code").val();
-    let field = $("#field").val();
-    let teamId = new Meteor.Collection.ObjectID().valueOf();
+    const { name, code, scores } = this.state;
 
-    // Teams.insert({
-    //   _id: teamId,
-    //   team: team,
-    //   score: scores,
-    //   code: teamCode,
-    //   group: group,
-    //   date: new Date()
-    // });
+    Meteor.call("insertTeam", name, scores, code, 'path');
     console.log('hello')
 
-    $(".field").val("");
-    // FlowRouter.go("/admin");
   }
+
+  updateOnChange = ({target: {value}}, type) => {
+    switch (type) {
+      case 'name':
+        this.setState({
+          name: value
+        });
+        break;
+    
+      default:
+      this.setState({
+        code: value
+      })
+        break;
+    }
+  }
+
   render() {
     return (
       <div>
@@ -43,18 +56,14 @@ export default class QuizEntry extends Component {
                 id="team"
                 required
                 placeholder="Name of Team"
+                onChange={(e) => this.updateOnChange(e, 'name')}
               />
               <input
                 className="field"
                 id="code"
                 required
                 placeholder="Team Code"
-              />
-              <input
-                className="field"
-                id="group"
-                required
-                placeholder=" Which Ministry "
+                onChange={(e) => this.updateOnChange(e, 'code')}
               />
               <button role="submit" className="btn flat green">
                 {" "}

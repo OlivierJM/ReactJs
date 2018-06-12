@@ -1,5 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import {Accounts} from 'meteor/accounts-base';
+import '../imports/api/teams/methods';
+import '../imports/api/teams/teams';
+
 
 Meteor.startup(() => {
   // code to run on server at startup
