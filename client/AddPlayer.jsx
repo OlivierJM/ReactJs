@@ -1,4 +1,4 @@
-import React, {Component,PropTypes} from 'react';
+import React, {Component} from 'react';
 import Header from './Views/Header.jsx';
 import {Teams, Players} from '../Collections/collections.js'
 import {createContainer} from 'meteor/react-meteor-data';

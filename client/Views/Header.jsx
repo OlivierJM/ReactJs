@@ -72,7 +72,7 @@ export default class Header extends Component {
                         <i className="material-icons">menu</i>
                     </a> */}
                     {/* Adventist Youth Ministries Bible Quiz Program */}
-                        <a href="/" className="brand-logo">Southern Zambia Union Conference Bible Quiz</a>
+                        <a href="/" className="brand-logo">Lusaka Conference</a>
 
                         <ul className="right hide-on-med-and-down" id="menu-list">
 
@@ -105,7 +105,7 @@ export default class Header extends Component {
                                             <li href="#!user">
                                                 <img className="circle" width="300" height="200" src="img/olivier.jpeg"/>
                                                 <a href="mailto:oliver@hackersguild.org">
-                                                    <span className="grey-text email">oliver@hackersguild.org</span>
+                                                    <span className="grey-text email">Email</span>
                                                 </a>
                                             </li>
 

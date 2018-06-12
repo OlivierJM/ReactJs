@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 
-import ReactCountdownClock from 'react-countdown-clock';
 import Header from './Header.jsx';
 
 export default class Timer extends Component {
@@ -41,14 +40,6 @@ export default class Timer extends Component {
 		return(
 			<div>
 			<div className="timer" style={{marginTop:"60"}}>
-			     <ReactCountdownClock seconds={10}
-                     color="#000"
-                     alpha={0.6}
-                     size={500}
-                     onComplete={this.myCallback()}
-                    paused={this.state.isPaused}
-                    pausedText="SZU"
-                      />
                     </div>
                  <div style={{float:'right'}}>
 
