@@ -1,8 +1,7 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import Header from "./Header.jsx";
-// import {Accounts} from 'meteor/accounts-base';
 import { createContainer } from "meteor/react-meteor-data";
-import { Teams, Members } from "../../Collections/collections.js";
+import { Teams } from '../../api/teams/teams'
 
 export class Home extends Component {
   //To the all details Page

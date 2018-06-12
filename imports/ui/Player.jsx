@@ -1,17 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 import Header from './Views/Header.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Teams, Players} from '../Collections/collections.js';
+import { Players } from '../api/players/players';
+import { Teams } from '../api/teams/teams'
 import {getTeamId} from './Views/TeamDetails';
 
 
 export class PlayerList extends Component {
-
-
-    //To the all details Page
-
-
-
     renderPlayers() {
         let count = 1;
         let players = this.props.players;

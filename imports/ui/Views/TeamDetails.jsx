@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Header.jsx';
-import {Teams, Players} from '../../Collections/collections.js';
+import { Teams } from '../../api/teams/teams';
+import { Players } from '../../api/players/players';
 import {createContainer} from 'meteor/react-meteor-data';
 
 export class TeamDetails extends Component {

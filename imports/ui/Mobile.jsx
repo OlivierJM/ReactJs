@@ -1,6 +1,6 @@
 import React, {Component, Proptypes} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Teams} from '../Collections/collections.js'
+import { Teams } from '../api/teams/teams'
 import Header from './Views/Header.jsx';
 
 export class Mobile extends Component {

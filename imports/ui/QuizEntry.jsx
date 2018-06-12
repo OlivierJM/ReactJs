@@ -1,6 +1,6 @@
 import React, { Component, Proptypes } from "react";
 import Header from "./Views/Header";
-import { Teams } from '../imports/api/teams';
+import { Teams } from '../api/teams/teams'
 
 export default class QuizEntry extends Component {
   handleSubmit = (e) => {
