@@ -1,7 +1,10 @@
 import React, { Component, Proptypes } from "react";
 import { Meteor } from 'meteor/meteor';
 import Header from "./Views/Header";
-import { Teams } from '../api/teams/teams'
+
+const colors = [
+  'red', 'blue', 'green', 'yellow'
+]
 
 export default class QuizEntry extends Component {
   constructor(){
@@ -9,12 +12,15 @@ export default class QuizEntry extends Component {
     this.state = {
       name: '', 
       code: '',
-      scores: 10
+      scores: 10,
+      color: 'blue'
     }
   }
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, code, scores } = this.state;
+
+
 
     Meteor.call("insertTeam", name, scores, code, 'path');
 
@@ -27,7 +33,11 @@ export default class QuizEntry extends Component {
           name: value
         });
         break;
-    
+      case 'name':
+        this.setState({
+          color: value
+        });
+        break;  
       default:
       this.setState({
         code: value
@@ -64,6 +74,14 @@ export default class QuizEntry extends Component {
                 placeholder="Team Code"
                 onChange={(e) => this.updateOnChange(e, 'code')}
               />
+                <input
+                className="field"
+                id="color"
+                required
+                placeholder="Color Code"
+                onChange={(e) => this.updateOnChange(e, 'color')}
+              />
+              
               <button role="submit" className="btn flat green">
                 {" "}
                 Save

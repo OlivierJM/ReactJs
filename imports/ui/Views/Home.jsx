@@ -17,12 +17,12 @@ export class Home extends Component {
     return teams.map(team => (
       <tr
         key={team._id}
-        className=""
+        className="teamss "
         onClick={e => this.viewDetails(e, team._id)}
       >
         <td style={{ height: 50 }}>{count++}</td>
         <td
-          className="team light link"
+          className="team teamss light link"
           title={"Click here to see details about " + team.team}
         >
           {team.team}
