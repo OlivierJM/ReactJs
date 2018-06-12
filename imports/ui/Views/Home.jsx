@@ -1,36 +1,32 @@
 import React, { Component } from "react";
 import Header from "./Header.jsx";
-import { createContainer } from "meteor/react-meteor-data";
+import { withTracker } from "meteor/react-meteor-data";
 import { Teams } from '../../api/teams/teams'
 
 export class Home extends Component {
   //To the all details Page
-  viewDetails(id, event) {
-    event.preventDefault();
-    FlowRouter.go("/details/" + id);
-  }
+  viewDetails = (e, id) => FlowRouter.go(`/details/${id}`);
+  
 
   renderTeams() {
     let count = 1;
-    let teams = this.props.teams;
-    if (teams == undefined) {
+    let { teams } = this.props;
+    if (!teams) {
       return null;
     }
     return teams.map(team => (
       <tr
         key={team._id}
         className=""
-        onClick={this.viewDetails.bind(this, team._id)}
+        onClick={e => this.viewDetails(e, team._id)}
       >
         <td style={{ height: 50 }}>{count++}</td>
         <td
-          onClick={""}
           className="team light link"
           title={"Click here to see details about " + team.team}
         >
           {team.team}
         </td>
-        {/* <td> <span className="badge ">{team.score}</span></td> */}
         <td className="team light red-text">{team.score}</td>
       </tr>
     ));
@@ -70,7 +66,7 @@ export class Home extends Component {
   }
 }
 
-export default createContainer(() => {
+export default withTracker(() => {
   return {
     teams: Teams.find(
       {},
@@ -81,4 +77,4 @@ export default createContainer(() => {
       }
     ).fetch()
   };
-}, Home);
+})(Home);

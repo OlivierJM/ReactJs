@@ -3,42 +3,22 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Teams } from "../api/teams/teams";
 import Header from "./Views/Header.jsx";
 
-const score = 10;
+const score = 10; //initial score for each correctly answered question
 
 export class App extends Component {
-  
-
-
-  //Decrement Points
-  handleReduce(id, event) {
-    event.preventDefault();
-
-    Teams.update(id, { $inc: { score: -5 } });
-  }
-
-  //Remove Team from game
-  handleRemove(id, event) {
-    event.preventDefault();
-
-    Teams.remove(id);
-  }
-
-  addPlayer(id, code, event) {
-    event.preventDefault();
-    FlowRouter.go("/add/" + id);
-  }
 
   // Handle all events
-
   updateTeam = (e, id, type) => {
     switch (type) {
       //Increment Points
       case 'add':
         Meteor.call('increaseTeamPoints', id, score);
         break;
+      // Deduct Points  
       case 'reduce':
         Meteor.call('reduceTeamPoints', id, score);
       break;
+      // Remove Team
       case 'remove':
         Meteor.call('removeTeam', id);
       break;
@@ -47,16 +27,16 @@ export class App extends Component {
 
   renderTeams() {
     let count = 1;
-    if (this.props.teams == undefined) {
+    const { teams } = this.props;
+    if (!teams) {
       return "No Team Added Yet";
     }
-    return this.props.teams.map(team => (
+    return teams.map(team => (
       <tr key={team._id} className="">
         <td>{count++}</td>
-        {/* <td onClick={''}  className="">{team.team}</td> */}
         <td
           className="link"
-          onClick={this.addPlayer.bind(this, team._id, team.code)}
+          onClick={() => FlowRouter.go(`/add/${team._id}`)}
         >
           {team.code}
         </td>
@@ -102,7 +82,6 @@ export class App extends Component {
                 <th data-field="" className="light">
                   #
                 </th>
-                {/* <th data-field="" className="light">Team</th> */}
                 <th data-field="" className="light">
                   Team Code
                 </th>
