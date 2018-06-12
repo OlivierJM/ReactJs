@@ -18,11 +18,9 @@ export default class QuizEntry extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, code, scores } = this.state;
+    const { name, code, scores, color } = this.state;
 
-
-
-    Meteor.call("insertTeam", name, scores, code, 'path');
+    Meteor.call("insertTeam", name, scores, code, color, 'path');
 
   }
 
@@ -33,7 +31,7 @@ export default class QuizEntry extends Component {
           name: value
         });
         break;
-      case 'name':
+      case 'color':
         this.setState({
           color: value
         });

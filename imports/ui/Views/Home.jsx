@@ -19,6 +19,7 @@ export class Home extends Component {
         key={team._id}
         className="teamss "
         onClick={e => this.viewDetails(e, team._id)}
+        style={{backgroundColor: team.color}}
       >
         <td style={{ height: 50 }}>{count++}</td>
         <td
