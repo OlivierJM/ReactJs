@@ -2,10 +2,6 @@ import React, { Component, Proptypes } from "react";
 import { Meteor } from 'meteor/meteor';
 import Header from "./Views/Header";
 
-const colors = [
-  'red', 'blue', 'green', 'yellow'
-]
-
 export default class QuizEntry extends Component {
   constructor(){
     super();
@@ -13,7 +9,8 @@ export default class QuizEntry extends Component {
       name: '', 
       code: '',
       scores: 10,
-      color: 'blue'
+      color: '',
+      msg: ''
     }
   }
   handleSubmit = (e) => {
@@ -28,23 +25,28 @@ export default class QuizEntry extends Component {
     switch (type) {
       case 'name':
         this.setState({
-          name: value
+          name: value,
+          msg: ''
         });
         break;
       case 'color':
+
         this.setState({
-          color: value
+          color: value.trim(),
+          msg: "Note: The color name should be one word"
         });
         break;  
       default:
       this.setState({
-        code: value
+        code: value,
+        msg: ''
       })
         break;
     }
   }
 
   render() {
+    const { color, msg } = this.state;
     return (
       <div>
         <Header />
@@ -77,14 +79,15 @@ export default class QuizEntry extends Component {
                 id="color"
                 required
                 placeholder="Color Code"
+                value={color}
                 onChange={(e) => this.updateOnChange(e, 'color')}
-              />
-              
+              /> 
               <button role="submit" className="btn flat green">
                 {" "}
                 Save
               </button>
             </form>
+            { msg }
           </div>
         </div>
       </div>
