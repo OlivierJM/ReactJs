@@ -3,11 +3,11 @@
 App.info({
   id: 'com.leaderboard.me',
   name: 'leaderboard',
-  version: "0.1.1",
+  version: "0.1.2",
   description: 'Quiz ScoreBoard',
   author: 'OlivierJM',
-  email: 'oliver@hackersguild.org',
-  website: 'http://hackersguild.org'
+  email: 'manolivier93@gmail.com',
+  website: 'http://bongohive.co.zom'
 });
 // });
 // // Set up resources such as icons and launch screens.
