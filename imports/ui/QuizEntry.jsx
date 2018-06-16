@@ -17,7 +17,9 @@ export default class QuizEntry extends Component {
     e.preventDefault();
     const { name, code, scores, color } = this.state;
 
-    Meteor.call("insertTeam", name, scores, code, color, 'path');
+    Meteor.call("insertTeam", name, scores, code, color, 'path', (err) => {
+      err ? this.setState({msg: err.reason}) : this.setState({name: '', code: '', color: '', msg: `Successfully saved ${name}`})
+    });
 
   }
 
@@ -46,7 +48,7 @@ export default class QuizEntry extends Component {
   }
 
   render() {
-    const { color, msg } = this.state;
+    const { color, msg, code, name } = this.state;
     return (
       <div>
         <Header />
@@ -65,6 +67,7 @@ export default class QuizEntry extends Component {
                 id="team"
                 required
                 placeholder="Name of Team"
+                value={name}
                 onChange={(e) => this.updateOnChange(e, 'name')}
               />
               <input
@@ -72,6 +75,7 @@ export default class QuizEntry extends Component {
                 id="code"
                 required
                 placeholder="Team Code"
+                value={code}
                 onChange={(e) => this.updateOnChange(e, 'code')}
               />
                 <input
