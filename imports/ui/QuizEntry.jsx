@@ -81,7 +81,6 @@ export default class QuizEntry extends Component {
                 <input
                 className="field"
                 id="color"
-                required
                 placeholder="Color Code"
                 value={color}
                 onChange={(e) => this.updateOnChange(e, 'color')}

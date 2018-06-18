@@ -1,5 +1,5 @@
 import { Meteor } from "meteor/meteor";
-import { check } from "meteor/check";
+import { check, Match } from "meteor/check";
 import { Teams } from "./teams";
 
 Meteor.methods({
@@ -7,7 +7,7 @@ Meteor.methods({
     check(team, String);
     check(score, Number);
     check(code, String);
-    check(color, String);
+    check(color, Match.OneOf(String, null, undefined));
     
     Teams.insert({
       team,

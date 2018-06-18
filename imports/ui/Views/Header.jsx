@@ -83,7 +83,7 @@ export default class Header extends Component {
             {/* Adventist Youth Ministries Bible Quiz Program */}
             <a href="/" className="brand-logo">
               {" "}
-              Conference
+              Chawama Mission District
             </a>
 
             <ul className="right hide-on-med-and-down" id="menu-list">

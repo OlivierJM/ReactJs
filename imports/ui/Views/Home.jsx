@@ -28,7 +28,7 @@ export class Home extends Component {
         >
           {team.team}
         </td>
-        <td className="team light red-text">{team.score}</td>
+        <td className="team light">{team.score}</td>
       </tr>
     ));
   }
@@ -42,7 +42,7 @@ export class Home extends Component {
             <h4
               className="center green-text darken-1 team"
             >
-              Senior Youth
+              { 'Ambassador Ministry'}
             </h4>
             <table className="highlight ">
               <thead>
